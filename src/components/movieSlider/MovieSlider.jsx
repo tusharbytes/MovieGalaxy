@@ -8,6 +8,7 @@ import 'swiper/css/scrollbar';
 import { getMovies } from '../../redux/features/MovieSlice/MovieSlice';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { singleMovieSelect } from '../../redux/features/singleViewMovie/SingleMovieSlice';
 
 function MovieSlider() {
     const dispatch = useDispatch();
@@ -19,27 +20,45 @@ function MovieSlider() {
 
     if (!fechingMmovie) return <p>Loading...</p>;
 
-    var settings = {
-      
+    // MovieSlider.jsx
+    const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 4 ,
-        slidesToScroll: 1
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024, // Tablets
+                settings: { slidesToShow: 3 }
+            },
+            {
+                breakpoint: 768, // Mobile Landscape
+                settings: { slidesToShow: 2 }
+            },
+            {
+                breakpoint: 480, // Mobile Portrait
+                settings: { slidesToShow: 1 }
+            }
+        ]
     };
+    const handleView = (movie)=>{
+        dispatch(singleMovieSelect(movie))
+        }
 
     return (
-        <div className='  container        bg-gray-900 text-white'>
+        <div className="container bg-gray-900 text-white">
             <Slider {...settings}>
                 {fechingMmovie.data?.length > 0 ? (
                     fechingMmovie.data.map((movie) => (
                         <div key={movie.id}>
-                            <div className="bg-transparent text-white p-4 shadow-lg rounded-lg overflow-hidden">
-                                <Link>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                                    alt={movie.original_title}
-                                    className="w-full h-64 object-contain rounded-xl"
-                                /></Link>
+                            <div className="p-4 shadow-lg rounded-lg overflow-hidden">
+                                <Link to={`/singlemovie/${movie.id}`} onClick={()=>handleView(movie)}>
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                                        alt={movie.original_title}
+                                        className="w-full h-48 md:h-64 object-cover rounded-xl"
+                                    />
+                                </Link>
                             </div>
                         </div>
                     ))

@@ -9,7 +9,6 @@ function Header() {
 
 
     const [randomMovie, setRandomMovie] = useState({})
-    console.log(randomMovie, "movirsd")
 
     const getRandom = async () => {
         try {

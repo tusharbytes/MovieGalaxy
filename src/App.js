@@ -14,6 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Header />}></Route>
         <Route path='/games' element={<GameView />}></Route>
+        <Route path='/wishlist' element={<MovieWishList />}></Route>
+
 
         <Route path='/movies' element={<MoviesView />}></Route>
         <Route path='/singlemovie/:id' element={<SingleMovieView />}></Route>

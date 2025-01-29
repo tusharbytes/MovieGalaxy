@@ -28,8 +28,7 @@ const movieSlice = createSlice({
                 state.loading = true;
             })
             .addCase(getMovies.fulfilled, (state, action) => {
-                console.log(state, "state")
-                console.log(action, "acyion")
+               
 
                 state.loading = false
                 state.movieGet = action.payload;

@@ -1,8 +1,8 @@
 
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import movieSlice from './redux/features/MovieSlice/MovieSlice';
-import movieAddSlice from "./redux/features/addWishList/MovieWishListSlice"
-import singleMovieSlice from "./redux/features/singleViewMovie/SingleMovieSlice"
+import movieSlice from '../features/MovieSlice/MovieSlice';
+import movieAddSlice from "../features/addWishList/MovieWishListSlice"
+import singleMovieSlice from "../features/singleViewMovie/SingleMovieSlice"
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
@@ -19,14 +19,13 @@ const rootReducer = combineReducers({
     fetchMovie: movieSlice,
     addListMovie: movieAddSlice,
     selectSingle: singleMovieSlice,
+    
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
     reducer: persistedReducer
-
-
 
 });
 const persistor = persistStore(store)

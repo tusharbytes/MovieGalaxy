@@ -11,9 +11,9 @@ function MoviesView() {
 
 
     const dispatch = useDispatch()
-    const fetch = useSelector((state) => state.fetchMovie.
-        movieGet
-    )
+    const fetch = useSelector((state) => state.fetchMovie.movieGet)
+    const wishList = useSelector((state) => state.addListMovie)
+
 
     useEffect(() => {
         dispatch(getMovies())
@@ -27,6 +27,12 @@ function MoviesView() {
 
     }
 
+    const handleAddRemoveMovies = (movie) => {
+
+        dispatch(addToWish(movie))
+
+    }
+
 
 
 
@@ -36,7 +42,9 @@ function MoviesView() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
                     {fetch.data?.map((movie) => (
                         <div key={movie.id} className="bg-transparent text-white p-4  shadow-lg rounded-lg overflow-hidden">
-                            <button className='text-red-800 h-4 w-full  '><IoHeartSharp /></button>
+                            <button onClick={() => handleAddRemoveMovies(movie)}
+                                className={` h-4 w-full      `}>
+                                <IoHeartSharp /> </button>
                             <Link to={`/singlemovie/${movie.id}`} onClick={() => handleSingleMovie(movie)}> <img
                                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                 alt={movie.original_title}
