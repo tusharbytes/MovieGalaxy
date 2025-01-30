@@ -20,8 +20,8 @@ function SingleMovieView() {
     }
 
     return (
-        <div className="h-screen bg-gray-900 flex items-center justify-center">
-            <div className="container mx-auto bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
+        <div className="h-screen   flex items-center justify-center">
+            <div className="container mx-auto   rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
                 {/* Left Section - Image */}
                 <div className="flex-shrink-0">
                     <img

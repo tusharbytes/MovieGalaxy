@@ -25,9 +25,9 @@ function Header() {
     }, [])
 
     return (
-        <div className='  bg-gray-900'>
-            <div className='h-screen container mx-auto flex justify-between items-center py-4 px-6  bg-gray-900 text-white'>
-                <div className="relative w-full h-screen bg-gray-800">
+        <div className='   py-4'>
+            <div className='h-screen container mx-auto flex justify-between items-center py-4 px-6     '>
+                <div className="relative w-full h-screen  ">
                     <img
                         src={randomMovie.poster_path}
                         alt={randomMovie.original_title}
@@ -51,13 +51,13 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-900 text-white p-6">
+            <div className="  container mx-auto f   justify-between items-center py-4 px-6  p-6">
 
                 <h2 className="text-2xl   font-bold mb-4  "> <span className='  px-2 py-2 rounded-xl '>Trending Now</span></h2>
                 <MovieSlider />
             </div>
 
-            <div className='flex bg-gray-900 text-white p-6'>
+            <div className='container mx-auto flex justify-between items-center py-4 px-6'>
                 <div className=''>
                     <h2 className="text-2xl   font-bold mb-4  "><span>More reasons to join</span></h2>
                     <img src="/images/join.jpg" alt="" /></div>

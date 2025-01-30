@@ -46,7 +46,7 @@ function MovieSlider() {
         }
 
     return (
-        <div className="container bg-gray-900 text-white">
+        <div className="container mx-auto flex-row justify-between items-center py-4 px-6  ">
             <Slider {...settings}>
                 {fechingMmovie.data?.length > 0 ? (
                     fechingMmovie.data.map((movie) => (
@@ -56,7 +56,7 @@ function MovieSlider() {
                                     <img
                                         src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                         alt={movie.original_title}
-                                        className="w-full h-48 md:h-64 object-cover rounded-xl"
+                                        className="w-full h-48 md:h-64 object-fill rounded-xl"
                                     />
                                 </Link>
                             </div>

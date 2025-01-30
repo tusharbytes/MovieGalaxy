@@ -19,12 +19,12 @@ function MovieWishList() {
   }
 
   return (
-    <div className="bg-gray-800 min-h-screen flex gap-2 flex-col items-center p-6">
+    <div className=" min-h-screen flex gap-2 flex-col items-center p-6">
       {wishList.movieAdd && wishList.movieAdd.length > 0 ? (
         wishList.movieAdd.map((movie) => (
           <div
             key={movie.id}
-            className="container mx-auto bg-gray-900 text-white shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6 rounded-lg"
+            className="container mx-auto     shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6 rounded-lg"
           >
             {/* Left: Movie Poster */}
             <div className="w-full md:w-1/3 flex justify-center">
@@ -41,11 +41,11 @@ function MovieWishList() {
             <div className="w-full md:w-2/3 p-4 flex flex-col justify-between">
               <div className="flex justify-between items-start">
                 <h3 className="text-2xl font-semibold">{movie.original_title}</h3>
-                <button onClick={() => handleRemove(movie)} className="text-red-800 text-xl p-2">
+                <button onClick={() => handleRemove(movie)} className="text-[red] rounded-full hover:text-white hover:bg-[red] text-xl p-2">
                 <RiDeleteBin6Line />
                 </button>
               </div>
-              <p className="text-gray-300 line-clamp-3 mt-2">{movie.overview}</p>
+              <p className="text-gray-500 line-clamp-3 mt-2">{movie.overview}</p>
               <p className="text-sm text-gray-500 mt-2">
                 {new Date(movie.release_date).toLocaleDateString()}
               </p>
@@ -62,7 +62,7 @@ function MovieWishList() {
           </div>
         ))
       ) : (
-        <p className="text-center text-gray-400">Your wishlist is empty.</p>
+        <p className="text-center animate-bounce text-gray-400">Your wishlist is empty...</p>
       )}
     </div>
 

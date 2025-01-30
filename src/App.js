@@ -6,6 +6,8 @@ import MoviesView from './components/pages/MoviesView';
 import GameView from './components/pages/GameView';
 import MovieWishList from './components/pages/movieWishList/MovieWishList';
 import SingleMovieView from './components/pages/singleMovieView/SingleMovieView';
+import ShoppingProdoucts from './components/pages/Shoppingproducts/ShoppingProdoucts';
+import Jobs from './components/pages/jobs/Jobs';
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
         <Route path='/' element={<Header />}></Route>
         <Route path='/games' element={<GameView />}></Route>
         <Route path='/wishlist' element={<MovieWishList />}></Route>
+
+        <Route path='/shoppoing' element={<ShoppingProdoucts />}></Route>
+        <Route path='/jobs' element={<Jobs />}></Route>
 
 
         <Route path='/movies' element={<MoviesView />}></Route>

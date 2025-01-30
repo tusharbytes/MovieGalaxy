@@ -11,14 +11,14 @@ const Navbar = () => {
 
     return (
         // Navbar.jsx
-        <nav className="bg-black text-white shadow sticky top-0 z-50">
+        <nav className="bg-white  shadow sticky top-0 z-50">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 {/* Brand Name */}
                 <div className="text-2xl md:text-3xl hover:text-red-600 flex items-center gap-2 font-bold">
-                    <Link>
+                    <Link to="/" >
                         <img src="images/Logo.jpg" className="h-10 md:h-12 w-auto" alt="Logo" />
                     </Link>
-                    MovieGalaxy
+                    <Link to="/" >MovieGalaxy</Link>
                 </div>
 
                 {/* Desktop Links */}
@@ -27,7 +27,9 @@ const Navbar = () => {
                     <Link to="/movies" className="hover:text-red-600">Movies</Link>
                     <Link className="hover:text-red-600">Music</Link>
                     <Link to="/games" className="hover:text-red-600">Games</Link>
-                    <Link className="hover:text-red-600">TV Show</Link>
+                    <Link to={"/shoppoing"} className="hover:text-red-600">Shopping</Link>
+                    <Link to={"/jobs"} className="hover:text-red-600">Jobs</Link>
+
                     <Link to={"/wishlist"} className="hover:text-red-600">Carts {cartCount.movieAdd.length === 0 ? "" : cartCount.movieAdd.length}</Link>
 
 
@@ -55,7 +57,9 @@ const Navbar = () => {
                         <Link to="/movies" className="hover:text-gray-300">Movies</Link>
                         <Link className="hover:text-gray-300">Music</Link>
                         <Link to="/games" className="hover:text-gray-300">Games</Link>
-                        <Link className="hover:text-gray-300">TV Show</Link>
+                        <Link to={"/shoppoing"} className="hover:text-gray-300">Shopping</Link>
+                        <Link to={"/jobs"} className="hover:text-gray-300">Jobs</Link>
+
                         <Link to={"/wishlist"} className="hover:text-red-600">Carts {cartCount.movieAdd.length === 0 ? "" : cartCount.movieAdd.length}</Link>
 
 

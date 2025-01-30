@@ -3,7 +3,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
+
+
+
 export const getMovies = createAsyncThunk("getMovies", async () => {
+  
     try {
         const response = await axios.get('https://jsonfakery.com/movies/paginated');
         return response.data;
@@ -17,7 +21,7 @@ export const getMovies = createAsyncThunk("getMovies", async () => {
 const movieSlice = createSlice({
     name: 'movieSlice',
     initialState: {
-        movieGet: [],
+        movieGet: null,
         loading: false,
         error: null,
     },
@@ -28,7 +32,7 @@ const movieSlice = createSlice({
                 state.loading = true;
             })
             .addCase(getMovies.fulfilled, (state, action) => {
-               
+
 
                 state.loading = false
                 state.movieGet = action.payload;
