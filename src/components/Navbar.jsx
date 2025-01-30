@@ -30,7 +30,7 @@ const Navbar = () => {
                     <Link to="/wishlist" className="  flex justify-center items-center hover:text-yellow-300 transition duration-300">
                      
                         {cartCount.movieAdd.length > 0 && (
-                            <span className="absolute top-0 right-0 bg-red-600   text-xs rounded-full px-2 py-1 animate-pulse">
+                            <span className="  bg-red-600   text-xs rounded-full px-2 py-1 animate-pulse">
                                 {cartCount.movieAdd.length}
                             </span>
                         )}
@@ -62,10 +62,10 @@ const Navbar = () => {
                         <Link to="/jobs" className="hover:text-red-500 transition duration-300">Jobs</Link>
 
                         {/* Cart Link */}
-                        <Link to="/wishlist" className="relative flex items-center hover:text-yellow-300 transition duration-300">
+                        <Link to="/wishlist" className="  flex items-center hover:text-yellow-300 transition duration-300">
                          
                             {cartCount.movieAdd.length > 0 && (
-                                <span className="absolute top-0 right-0 bg-red-600 text-white text-xs rounded-full px-2 py-1 animate-pulse">
+                                <span className="  bg-red-600 text-white text-xs rounded-full px-2 py-1 animate-pulse">
                                     {cartCount.movieAdd.length}
                                 </span>
                             )}

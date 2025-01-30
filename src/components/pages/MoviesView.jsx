@@ -61,7 +61,7 @@ function MoviesView() {
                                 onClick={() => handleSingleMovie(movie)}> <img
                                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                                     alt={movie.original_title}
-                                    className="w-full h-64 object-contain rounded-xl"
+                                    className="w-full   object-cover rounded-xl"
                                 />
                             </Link>
                             <div className="p-4">

@@ -8,6 +8,7 @@ import MovieWishList from './components/pages/movieWishList/MovieWishList';
 import SingleMovieView from './components/pages/singleMovieView/SingleMovieView';
 import ShoppingProdoucts from './components/pages/Shoppingproducts/ShoppingProdoucts';
 import Jobs from './components/pages/jobs/Jobs';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
 
 
       </Routes>
+      <Footer/>
     </ >
   );
 }

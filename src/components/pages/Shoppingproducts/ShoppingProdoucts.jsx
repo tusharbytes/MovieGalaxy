@@ -32,7 +32,7 @@ function ShoppingProdoucts() {
           ><img
               src={item.product.image}
               alt={item.product.name}
-              className="w-40 h-40 object-cover rounded-lg"
+              className=" h-[250px] object-cover rounded-lg"
             /></Link>
           <h2 className="text-lg font-bold mt-2">{item.product.name}</h2>
           <p className="text-gray-600 text-sm">{item.product.description}</p>

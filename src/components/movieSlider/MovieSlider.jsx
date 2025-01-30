@@ -24,7 +24,7 @@ function MovieSlider() {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll:4 ,
         responsive: [
             {
                 breakpoint: 1024, // Tablets
@@ -50,7 +50,7 @@ function MovieSlider() {
             <h2 className="text-2xl font-bold text-white mb-6">
                 <span className="px-2 py-2 rounded-xl bg-blue-700">Trending Now</span>
             </h2>
-            <Slider {...settings}>
+            <Slider className='bg-black' {...settings}>
                 {fetchingMovie.data?.length > 0 ? (
                     fetchingMovie.data.map((movie) => (
                         <div key={movie.id} className="px-2">
