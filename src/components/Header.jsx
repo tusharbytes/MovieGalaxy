@@ -3,38 +3,44 @@ import React, { useEffect, useState } from 'react'
 import { getMovies } from '../redux/features/MovieSlice/MovieSlice'
 import MovieSlider from './movieSlider/MovieSlider'
 
-
 function Header() {
-
-
-
     const [randomMovie, setRandomMovie] = useState({})
+    const [loading, setLoading] = useState(true)
 
     const getRandom = async () => {
         try {
             const response = await axios.get(`https://jsonfakery.com/movies/random`)
             setRandomMovie(response.data)
+            setLoading(false)
         } catch (error) {
             console.log(error)
-
+            setLoading(false)
         }
     }
-    useEffect(() => {
 
+    useEffect(() => {
         getRandom()
     }, [])
 
+    if (loading) {
+        return (
+            <div className="h-screen flex justify-center items-center bg-gray-800 text-white">
+                <p>Loading...</p>
+            </div>
+        )
+    }
+
     return (
-        <div className='   py-4'>
-            <div className='h-screen container mx-auto flex justify-between items-center py-4 px-6     '>
-                <div className="relative w-full h-screen  ">
+        <div className='py-4  '>
+            <div className='h-screen container mx-auto flex justify-between items-center py-4 px-6'>
+                <div className="relative w-full h-full">
                     <img
                         src={randomMovie.poster_path}
                         alt={randomMovie.original_title}
-                        className="object-contain w-full h-full opacity-80"
+                        className="object-cover w-full h-full opacity-80"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-50">
-                        <div className="flex   items-center w-full h-full px-4">
+                        <div className="flex items-center w-full h-full px-4">
                             <div className="lg:w-1/3 text-white text-center lg:text-left space-y-4">
                                 <h1 className="text-5xl font-bold">{randomMovie.original_title}</h1>
                                 <p className="text-lg">{randomMovie.overview}</p>
@@ -51,19 +57,20 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div className="  container mx-auto f   justify-between items-center py-4 px-6  p-6">
 
-                <h2 className="text-2xl   font-bold mb-4  "> <span className='  px-2 py-2 rounded-xl '>Trending Now</span></h2>
+            {/* Trending Section */}
+            <div className="container mx-auto flex justify-between items-center py-4 px-6 p-6">
+              
                 <MovieSlider />
             </div>
 
+            {/* More reasons to join section */}
             <div className='container mx-auto flex justify-between items-center py-4 px-6'>
                 <div className=''>
-                    <h2 className="text-2xl   font-bold mb-4  "><span>More reasons to join</span></h2>
-                    <img src="/images/join.jpg" alt="" /></div>
+                    <h2 className="text-2xl font-bold mb-4  "><span>More reasons to join</span></h2>
+                    <img src="/images/join.jpg" alt="Join" className="w-full rounded-md shadow-lg" />
+                </div>
             </div>
-
-
         </div>
     )
 }

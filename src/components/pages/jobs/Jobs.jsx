@@ -5,7 +5,6 @@ import { FaBriefcase, FaBuilding, FaClock, FaLaptop, FaMoneyBillWave, FaPhone, F
 
 function Jobs() {
     const hiring = useSelector((state) => state.jobsOffers)
-    console.log(hiring.jobsOffers, "sjfvhsbv")
 
     const dispatch = useDispatch()
 

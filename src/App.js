@@ -18,7 +18,7 @@ function App() {
         <Route path='/games' element={<GameView />}></Route>
         <Route path='/wishlist' element={<MovieWishList />}></Route>
 
-        <Route path='/shoppoing' element={<ShoppingProdoucts />}></Route>
+        <Route path='/shopping' element={<ShoppingProdoucts />}></Route>
         <Route path='/jobs' element={<Jobs />}></Route>
 
 

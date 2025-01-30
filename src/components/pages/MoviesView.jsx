@@ -48,11 +48,11 @@ function MoviesView() {
 
 
     return (
-        <div className='  bg- '>
+        <div className='  '>
             <div className='container    mx-auto flex justify-between items-center py-4 px-6'>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
                     {fetch.data?.map((movie) => (
-                        <div key={movie.id} className="bg-transparent p-4  shadow-lg rounded-lg overflow-hidden">
+                        <div key={movie.id} className="  p-4   shadow-lg rounded-lg overflow-hidden">
                             <button onClick={() => handleAddRemoveMovies(movie)}
                                 className={`h-8   ${changes.some(item => item.id === movie.id) ? "text-red-600" : "text-gray-500"}`}
                             >

@@ -5,6 +5,7 @@ import { addToWish } from '../../../redux/features/addWishList/MovieWishListSlic
 
 function SingleMovieView() {
     const singleMovie = useSelector((state) => state.selectSingle.singleMovie);
+    console.log(singleMovie, "okokok")
     const dispatch = useDispatch();
     const [addedToWish, setAddedToWish] = useState(false);
 
@@ -16,45 +17,77 @@ function SingleMovieView() {
     };
 
     if (!singleMovie) {
-        return <div className="h-screen flex items-center justify-center text-white">Movie not found</div>;
+        return <div className="h-screen flex items-center justify-center  ">Movie not found</div>;
     }
 
     return (
-        <div className="h-screen   flex items-center justify-center">
-            <div className="container mx-auto   rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
-                {/* Left Section - Image */}
-                <div className="flex-shrink-0">
-                    <img
-                        src={`https://image.tmdb.org/t/p/original/${singleMovie.poster_path}`}
-                        alt={singleMovie.original_title}
-                        className="w-[500px] h-auto object-contain rounded-lg shadow-md"
+        <div className="h-screen flex items-center justify-center bg-gray-100">
+            {singleMovie?.poster_path && (
+                <div className="container mx-auto bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                    {/* Left Section - Movie Image */}
+                    <div className="flex-shrink-0">
+                        <img
+                            src={`https://image.tmdb.org/t/p/original/${singleMovie?.poster_path}`}
+                            alt={singleMovie?.original_title}
+                            className="w-[300px] md:w-[500px] h-auto object-cover rounded-lg shadow-lg"
+                        />
+                    </div>
+
+                    {/* Right Section - Movie Details */}
+                    <div className="flex-1 text-gray-900">
+                        <h3 className="text-3xl font-semibold mb-4 text-center md:text-left">{singleMovie?.original_title}</h3>
+                        <p className="text-gray-500 text-sm md:text-base line-clamp-5 mb-4">{singleMovie?.overview}</p>
+                        <p className="text-gray-500 text-base">
+                            Release Date: {singleMovie?.release_date ? new Date(singleMovie?.release_date).toLocaleDateString() : 'N/A'}
+                        </p>
+
+                        <div className="mt-4 flex justify-center md:justify-start items-center space-x-4">
+                            <span className="text-yellow-500 text-2xl">{singleMovie?.vote_average}</span>
+                            <span className="text-gray-600 text-sm">({singleMovie?.vote_count} votes)</span>
+                        </div>
+
+                        {/* Wishlist Button */}
+                        <div className="mt-6 flex justify-center md:justify-start">
+                            <button
+                                onClick={handleAddRemove}
+                                className="py-3 px-8 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                                {addedToWish ? "Remove from Wishlist" : "Add to Wishlist"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Product Details Section */}
+            {singleMovie?.product && (
+                <div className="container mx-auto bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 mt-8">
+                    <div className='flex-shrink-0'>  <img
+                        src={singleMovie?.product?.image}
+                        alt={singleMovie?.product?.name}
+                        className="w-[300px] md:w-[500px] h-auto object-cover rounded-lg shadow-lg"
                     />
-                </div>
-
-                {/* Right Section - Details */}
-                <div className="flex-1 text-white">
-                    <h3 className="text-2xl font-bold mb-4">{singleMovie.original_title}</h3>
-                    <p className="text-gray-400 text-sm line-clamp-3">{singleMovie.overview}</p>
-                    <p className="text-gray-500 mt-4">
-                        Release Date: {new Date(singleMovie.release_date).toLocaleDateString()}
-                    </p>
-                    <div className="mt-4 flex items-center space-x-4">
-                        <span className="text-yellow-500 text-xl">{singleMovie.vote_average}</span>
-                        <span className="text-gray-500 text-sm">({singleMovie.vote_count} votes)</span>
                     </div>
+                    <div className="flex-1 text-gray-900">
+                    <h3 className="text-3xl font-semibold mb-4 text-center md:text-left">{singleMovie?.product?.name}</h3>
 
-                    {/* Buttons */}
-                    <div className="mt-6 flex items-center space-x-4">
-                  
-                        <button 
-                            onClick={handleAddRemove} 
-                            className="py-2 px-6 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                            {addedToWish ? "Remove from Wishlist" : "Add to Wishlist"}
-                        </button>
-                    </div>
+                    <p className="text-gray-500 text-sm md:text-base line-clamp-5 mb-4">{singleMovie?.product?.description}</p>
+                    <p className="text-gray-800 font-semibold">Price: ${singleMovie?.product?.price}</p>
+                    <p className="text-gray-600">Category: {singleMovie?.product?.product_category?.name}</p>
+                    <p className="text-gray-600">Quantity: {singleMovie?.quantity}</p>
+                    <p className="text-gray-900 font-semibold mt-4">Total Amount: ${singleMovie?.total_amount}</p>
                 </div>
-            </div>
+                <div className="mt-6 flex justify-center md:justify-start">
+                            <button
+                                onClick={handleAddRemove}
+                                className="py-3 px-8 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                                {addedToWish ? "Remove from Wishlist" : "Add to Wishlist"}
+                            </button>
+                        </div>
+                </div>
+            )}
         </div>
+
+
     );
 }
 

@@ -19,12 +19,12 @@ function MovieWishList() {
   }
 
   return (
-    <div className=" min-h-screen flex gap-2 flex-col items-center p-6">
+    <div className=" min-h-screen   flex gap-2 flex-col items-center p-6">
       {wishList.movieAdd && wishList.movieAdd.length > 0 ? (
         wishList.movieAdd.map((movie) => (
           <div
             key={movie.id}
-            className="container mx-auto     shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6 rounded-lg"
+            className="container mx-auto  bg-white    shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6 rounded-lg"
           >
             {/* Left: Movie Poster */}
             <div className="w-full md:w-1/3 flex justify-center">
@@ -62,7 +62,9 @@ function MovieWishList() {
           </div>
         ))
       ) : (
-        <p className="text-center animate-bounce text-gray-400">Your wishlist is empty...</p>
+        <div className='flex h-screen justify-center items-center'>
+        <p className="  animate-bounce text-gray-400">Your wishlist is empty...</p>
+        </div>
       )}
     </div>
 
