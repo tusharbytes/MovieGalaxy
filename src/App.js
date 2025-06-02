@@ -12,10 +12,10 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    < >
+    <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Header />}></Route>
+        <Route path='/' element={<Header />}> </Route>
         <Route path='/games' element={<GameView />}></Route>
         <Route path='/wishlist' element={<MovieWishList />}></Route>
 
@@ -29,7 +29,7 @@ function App() {
 
       </Routes>
       <Footer/>
-    </ >
+    </>
   );
 }
 

@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
-import { IoHeartSharp } from 'react-icons/io5';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWish } from '../../../redux/features/addWishList/MovieWishListSlice';
 
 function SingleMovieView() {
-    const singleMovie = useSelector((state) => state.selectSingle.singleMovie);
-    console.log(singleMovie, "okokok")
-    const dispatch = useDispatch();
+ 
+     const dispatch = useDispatch();
+   
+   const singleMovie = useSelector((state) => state.selectSingle.singleMovie);
+   const wishlist =useSelector((state=> state?.addListMovie.movieAdd))
+   console.log(wishlist.map((item)=>( item.id)),"wishlist")
+ 
     const [addedToWish, setAddedToWish] = useState(false);
+
+   
+     
 
     const handleAddRemove = () => {
         if (singleMovie) {
@@ -51,7 +57,8 @@ function SingleMovieView() {
                             <button
                                 onClick={handleAddRemove}
                                 className="py-3 px-8 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
-                                {addedToWish ? "Remove from Wishlist" : "Add to Wishlist"}
+                    {wishlist.some(item => item.id === singleMovie.id) ? "Remove" : "Add Movie"}
+
                             </button>
                         </div>
                     </div>
@@ -79,7 +86,7 @@ function SingleMovieView() {
                             <button
                                 onClick={handleAddRemove}
                                 className="py-3 px-8 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
-                                {addedToWish ? "Remove from Wishlist" : "Add to Wishlist"}
+                         Streaming
                             </button>
                         </div>   </div>
 

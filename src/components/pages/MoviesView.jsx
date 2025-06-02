@@ -5,22 +5,23 @@ import { IoHeartSharp } from 'react-icons/io5'
 import { Link, useParams } from 'react-router-dom'
 import { addToWish } from '../../redux/features/addWishList/MovieWishListSlice'
 import { singleMovieSelect } from '../../redux/features/singleViewMovie/SingleMovieSlice'
+import SingleMovieView from './singleMovieView/SingleMovieView'
+import Loader from '../common/Loader'
 
 function MoviesView() {
 
 
-
     const dispatch = useDispatch()
-    const fetch = useSelector((state) => state.fetchMovie.movieGet)
+    const fetch = useSelector((state) => state.fetchMovie)
+    console.log(fetch.loading,"moviefetch")
     const wishList = useSelector((state) => state.addListMovie)
-
     const [changes, setChanges] = useState([])
-    console.log(changes, "changes")
 
+    
     useEffect(() => {
- 
-            dispatch(getMovies())
-        
+
+        dispatch(getMovies())
+
     }, [])
 
 
@@ -28,7 +29,7 @@ function MoviesView() {
     const handleSingleMovie = (singleMovie) => {
 
         dispatch(singleMovieSelect(singleMovie))
-
+ 
     }
 
     const handleAddRemoveMovies = (movie) => {
@@ -49,9 +50,10 @@ function MoviesView() {
 
     return (
         <div className='  '>
+            {fetch.loading && <Loader/> }
             <div className='container    mx-auto flex justify-between items-center py-4 px-6'>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-                    {fetch.data?.map((movie) => (
+                    {fetch?.movieGet.data?.map((movie) => (
                         <div key={movie.id} className="  p-4   shadow-lg rounded-lg overflow-hidden">
                             <button onClick={() => handleAddRemoveMovies(movie)}
                                 className={`h-8   ${changes.some(item => item.id === movie.id) ? "text-red-600" : "text-gray-500"}`}
@@ -83,6 +85,7 @@ function MoviesView() {
                     ))}
                 </div>
             </div>
+      
         </div>
     )
 }

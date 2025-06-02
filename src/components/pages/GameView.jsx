@@ -1,24 +1,34 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Loader from '../common/Loader'
 
 function GameView() {
 
     const [game, setGame] = useState([])
-    console.log(game, "game")
+    const [loading , setLoading]= useState(false)
 
     const fetchGame = async () => {
         const response = await axios.get(`https://jsonfakery.com/games/paginated`)
-        setGame(response.data.data)
+    
+         if(response.data.data){
+        
+           setGame(response.data.data)
+           setLoading(false)
+        } 
+       
+       
 
     }
 
     useEffect(() => {
+         setLoading(true) 
         fetchGame()
     }, [])
 
 
     return (
         <div className="w-full p-4">
+          { loading  && <Loader/>}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {game.map((game) => (
         <div key={game.id} className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl">

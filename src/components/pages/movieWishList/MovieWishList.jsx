@@ -12,9 +12,6 @@ function MovieWishList() {
 
   const handleRemove = (movie) => {
     dispatch(addToWish(movie))
-    console.log(movie.id,"handleRemove")
-
-
 
   }
 
@@ -54,7 +51,7 @@ function MovieWishList() {
                   <span className="text-yellow-500 text-lg">{movie.vote_average}</span>
                   <span className="text-gray-500 ml-2">({movie.vote_count} votes)</span>
                 </div>
-                <button className="py-2 px-4 rounded-2xl text-black bg-white hover:bg-blue-500 transition">
+                <button className="py-2 px-4 rounded-2xl text-white  bg-red-400 hover:bg-red-600 transition">
                Streaming
                 </button>
               </div>

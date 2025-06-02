@@ -8,9 +8,7 @@ const movieAddSlice = createSlice({
   },
   reducers: {
     addToWish: (state, action) => {
-
-      console.log(JSON.stringify(state.movieAdd), "Current movieAdd array");
-      console.log(action.payload, "Payload");
+ 
 
       const exists = state.movieAdd.some(item => item.id === action.payload.id);
 

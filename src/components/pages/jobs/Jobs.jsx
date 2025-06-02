@@ -2,19 +2,29 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { jobsApi } from '../../../redux/features/jobSlice/JobSlice'
 import { FaBriefcase, FaBuilding, FaClock, FaLaptop, FaMoneyBillWave, FaPhone, FaUserTie } from 'react-icons/fa'
+import Loader from '../../common/Loader'
 
 function Jobs() {
     const hiring = useSelector((state) => state.jobsOffers)
+    console.log(hiring.loading,"hiring")
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(jobsApi())
+        if(hiring.loading == false){
+            <Loader/>
+        }else{
+ dispatch(jobsApi())
+        }
+       
     }, [])
 
 
     return (
-        <div> <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center tracking-wide">
+        <div> 
+            {hiring.loading  ? <Loader/> :
+            <div>
+            <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center tracking-wide">
             🚀 Job <span className="text-blue-600">Listings</span>
         </h1>
 
@@ -49,7 +59,9 @@ function Jobs() {
                         </p>
                     </div>
                 ))}
-            </div></div>
+            </div>
+            </div>}
+            </div>
     )
 }
 

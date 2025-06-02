@@ -8,8 +8,8 @@ const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const cartCount = useSelector((state) => state.addListMovie);
 
-    return (
-        <nav className="bg-white shadow-md sticky top-0 z-50">
+    return (    
+        <nav className= "bg-white  sticky top-0 z-50">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 {/* Brand Name */}
                 <div className="flex items-center gap-2 font-semibold  text-3xl">
@@ -21,7 +21,6 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center space-x-8 text-lg ">
                     <Link to="/" className="hover:text-red-500 font-serif transition duration-300">Home</Link>
                     <Link to="/movies" className="hover:text-red-500 font-serif transition duration-300">Movies</Link>
-                    <Link to="/music" className="hover:text-red-500 font-serif transition duration-300">Music</Link>
                     <Link to="/games" className="hover:text-red-500 font-serif transition duration-300">Games</Link>
                     <Link to="/shopping" className="hover:text-red-500 font-serif transition duration-300">Shopping</Link>
                     <Link to="/jobs" className="hover:text-red-500 font-serif transition duration-300">Jobs</Link>
@@ -56,7 +55,6 @@ const Navbar = () => {
                     <div className="flex flex-col items-center py-4 space-y-4 ">
                         <Link to="/" className="hover:text-red-500 transition duration-300">Home</Link>
                         <Link to="/movies" className="hover:text-red-500 transition duration-300">Movies</Link>
-                        <Link to="/music" className="hover:text-red-500 transition duration-300">Music</Link>
                         <Link to="/games" className="hover:text-red-500 transition duration-300">Games</Link>
                         <Link to="/shopping" className="hover:text-red-500 transition duration-300">Shopping</Link>
                         <Link to="/jobs" className="hover:text-red-500 transition duration-300">Jobs</Link>
