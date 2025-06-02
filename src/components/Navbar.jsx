@@ -9,7 +9,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const cartCount = useSelector((state) => state.addListMovie);
 
-  // Close menu when a nav item is clicked (mobile)
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
   };
@@ -23,45 +22,45 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-black text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        {/* Brand */}
+        {/* Logo */}
         <Link
           to="/"
-          className="text-3xl font-serif font-bold text-gray-800 hover:text-red-500 transition"
+          className="text-2xl sm:text-3xl font-serif font-bold text-white hover:text-red-500 transition"
         >
-          MovieGalaxy
+          🎥 MovieGalaxy
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8 text-lg">
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center space-x-8 text-base lg:text-lg">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className="font-serif hover:text-red-500 transition duration-300"
+              className="font-serif hover:text-red-400 transition duration-300"
             >
               {link.label}
             </Link>
           ))}
 
-          {/* Cart Icon */}
+          {/* Cart */}
           <Link
             to="/wishlist"
-            className="flex items-center gap-1 hover:text-yellow-400 transition"
+            className="flex items-center gap-2 relative group"
           >
-            <MdShoppingCartCheckout className="text-xl" />
+            <MdShoppingCartCheckout className="text-2xl group-hover:text-yellow-400 transition" />
             {cartCount.movieAdd.length > 0 && (
-              <span className="bg-red-600 text-white text-xs rounded-full px-2 py-0.5 animate-pulse">
+              <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs rounded-full px-2 py-0.5 animate-pulse">
                 {cartCount.movieAdd.length}
               </span>
             )}
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile menu button */}
         <button
-          className="md:hidden focus:outline-none"
+          className="md:hidden focus:outline-none text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
@@ -74,33 +73,33 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-inner">
+        <div className="md:hidden bg-black text-white shadow-inner transition-all duration-300">
           <div className="flex flex-col items-center py-6 space-y-5 text-lg">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="hover:text-red-500 transition duration-300"
+                className="hover:text-red-400 transition duration-300"
                 onClick={handleNavClick}
               >
                 {link.label}
               </Link>
             ))}
 
-            {/* Cart in mobile */}
+            {/* Cart (Mobile) */}
             <Link
               to="/wishlist"
               onClick={handleNavClick}
-              className="flex items-center gap-1 hover:text-yellow-400 transition"
+              className="flex items-center gap-2 hover:text-yellow-400 transition"
             >
-              <MdShoppingCartCheckout className="text-xl" />
+              <MdShoppingCartCheckout className="text-2xl" />
               {cartCount.movieAdd.length > 0 && (
                 <span className="bg-red-600 text-white text-xs rounded-full px-2 py-0.5 animate-pulse">
                   {cartCount.movieAdd.length}
                 </span>
               )}
             </Link>
-          </div>g
+          </div>
         </div>
       )}
     </nav>
