@@ -9,10 +9,12 @@ import SingleMovieView from './components/pages/singleMovieView/SingleMovieView'
 import ShoppingProdoucts from './components/pages/Shoppingproducts/ShoppingProdoucts';
 import Jobs from './components/pages/jobs/Jobs';
 import Footer from './components/Footer';
+import CommonContainer from './components/common/Container';
 
 function App() {
   return (
-    <>
+    <CommonContainer>
+
       <Navbar />
       <Routes>
         <Route path='/' element={<Header />}> </Route>
@@ -29,7 +31,7 @@ function App() {
 
       </Routes>
       <Footer/>
-    </>
+    </CommonContainer>
   );
 }
 
