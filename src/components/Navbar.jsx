@@ -7,7 +7,11 @@ import { MdShoppingCartCheckout } from "react-icons/md";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const cartCount = useSelector((state) => state.addListMovie);
+
+  const wishList = useSelector((state) => state.addListMovie);
+  const shoppingList = useSelector((state) => state.addProduct.items);
+  const countProduct = shoppingList.length;
+  const totalCount = wishList.movieAdd.length + countProduct;
 
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
@@ -44,21 +48,21 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Cart */}
+          {/* Cart Icon */}
           <Link
             to="/wishlist"
             className="flex items-center gap-2 relative group"
           >
             <MdShoppingCartCheckout className="text-2xl group-hover:text-yellow-400 transition" />
-            {cartCount.movieAdd.length > 0 && (
+            {(totalCount > 0) && (
               <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs rounded-full px-2 py-0.5 animate-pulse">
-                {cartCount.movieAdd.length}
+                {totalCount}
               </span>
             )}
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden focus:outline-none text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -86,16 +90,16 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Cart (Mobile) */}
+            {/* Cart Icon (Mobile) */}
             <Link
               to="/wishlist"
               onClick={handleNavClick}
               className="flex items-center gap-2 hover:text-yellow-400 transition"
             >
               <MdShoppingCartCheckout className="text-2xl" />
-              {cartCount.movieAdd.length > 0 && (
+              {(totalCount > 0) && (
                 <span className="bg-red-600 text-white text-xs rounded-full px-2 py-0.5 animate-pulse">
-                  {cartCount.movieAdd.length}
+                  {totalCount}
                 </span>
               )}
             </Link>

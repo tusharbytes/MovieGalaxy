@@ -7,6 +7,7 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
 import shoppingCart from "../features/shoppingSlice/ShoppingSlice";
 import jobSlice from "../features/jobSlice/JobSlice";
+import ProductWishSlice from "../features/productWishList/ProductWishList"
 
 const persistConfig = {
     key: 'root',
@@ -19,6 +20,9 @@ const rootReducer = combineReducers({
     addListMovie: movieAddSlice,
     jobsOffers: jobSlice,
     shop: shoppingCart,
+    addProduct: ProductWishSlice
+
+
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

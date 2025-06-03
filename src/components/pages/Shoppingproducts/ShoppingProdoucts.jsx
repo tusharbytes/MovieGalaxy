@@ -4,10 +4,17 @@ import { shoppingApi } from '../../../redux/features/shoppingSlice/ShoppingSlice
 import { Link } from 'react-router-dom';
 import { singleMovieSelect } from '../../../redux/features/singleViewMovie/SingleMovieSlice';
 import Loader from '../../common/Loader';
+import { addToWish } from '../../../redux/features/addWishList/MovieWishListSlice';
+import { addToProductWish } from '../../../redux/features/productWishList/ProductWishList';
+import { ToastContainer } from 'react-toastify';
 
 function ShoppingProducts() {
   const dispatch = useDispatch();
   const shop = useSelector((state) => state.shop);
+  const CheckWishList = useSelector((state) => state.addProduct.items);
+  console.log(CheckWishList,"sadsadas")
+
+  
 
   const handleSingleView = (item) => {
     dispatch(singleMovieSelect(item));
@@ -16,6 +23,10 @@ function ShoppingProducts() {
   useEffect(() => {
     dispatch(shoppingApi());
   }, [dispatch]);
+
+  const handleAddRemove =(item)=>{
+    dispatch(addToProductWish(item))
+  }
 
   if (shop.loading) {
     return (
@@ -71,12 +82,13 @@ function ShoppingProducts() {
               </p>
             </div>
 
-            <button className="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition text-sm">
-              Add to Cart
+            <button onClick={()=>handleAddRemove(item)} className="mt-4 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition text-sm">
+            {CheckWishList.some((product)=>(product.id === item.id)) ? "Remove cart" :"Add To Cart"} 
             </button>
           </div>
         ))}
       </div>
+      <ToastContainer/>
     </div>
   );
 }

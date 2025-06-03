@@ -7,8 +7,9 @@ function SingleMovieView() {
      const dispatch = useDispatch();
    
    const singleMovie = useSelector((state) => state.selectSingle.singleMovie);
+   console.log(singleMovie)
    const wishlist =useSelector((state=> state?.addListMovie.movieAdd))
-   console.log(wishlist.map((item)=>( item.id)),"wishlist")
+   
  
     const [addedToWish, setAddedToWish] = useState(false);
 
@@ -86,7 +87,7 @@ function SingleMovieView() {
                             <button
                                 onClick={handleAddRemove}
                                 className="py-3 px-8 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition duration-300">
-                         Streaming
+                         Streaming  
                             </button>
                         </div>   </div>
 

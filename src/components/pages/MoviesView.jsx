@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { addToWish } from '../../redux/features/addWishList/MovieWishListSlice';
 import { singleMovieSelect } from '../../redux/features/singleViewMovie/SingleMovieSlice';
 import Loader from '../common/Loader';
+import { toast, ToastContainer } from 'react-toastify';
 
 function MoviesView() {
   const dispatch = useDispatch();
@@ -23,8 +24,10 @@ function MoviesView() {
   const handleAddRemoveMovies = (movie) => {
     setChanges((prev) => {
       if (prev.some((item) => item.id === movie.id)) {
+             toast.error("Remove wish List")
         return prev.filter((item) => item.id !== movie.id);
       } else {
+        toast.success("Add wish List")
         return [...prev, movie];
       }
     });
@@ -33,6 +36,7 @@ function MoviesView() {
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
+      <ToastContainer/>
       {fetch.loading && <Loader />}
 
       <div className="container mx-auto px-4">
@@ -51,7 +55,7 @@ function MoviesView() {
               >
                 <IoHeartSharp
                   className={`transition-transform duration-200 ${
-                    changes.some((item) => item.id === movie.id)
+                      changes.some((item) => item.id === movie.id)
                       ? 'text-red-600 scale-125'
                       : 'text-gray-400 hover:text-red-500'
                   }`}
@@ -82,9 +86,7 @@ function MoviesView() {
                     <span className="text-yellow-500 font-bold">{movie.vote_average}</span>
                     <span className="text-gray-500 ml-1 text-sm">({movie.vote_count} votes)</span>
                   </div>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-4 py-2 rounded-full shadow-sm transition duration-300">
-                    Add Watching
-                  </button>
+              
                 </div>
               </div>
             </div>
