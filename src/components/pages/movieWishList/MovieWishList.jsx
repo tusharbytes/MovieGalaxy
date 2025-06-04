@@ -28,13 +28,13 @@ function MovieWishList() {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">🎬 Your Wishlist</h1>
+    <div className="min-h-screen  py-10 px-4">
+      <h1 className="text-3xl font-bold text-center text-white mb-8">🎬 Your Wishlist</h1>
       <ToastContainer/>
       {/* 
 
       {!movieId == undefined ? ( */}
-      <div className="space-y-6 max-w-5xl mx-auto">
+      <div className="py-4  max-w-5xl mx-auto">
         {wishList?.movieAdd.map((movie) => (
           <div
             key={movie.id}
@@ -87,7 +87,7 @@ function MovieWishList() {
       {shoppingList.map(item => (
         <div
           key={item.id}
-          className="bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden flex flex-col md:flex-row max-w-5xl mx-auto mb-6"
+          className="bg-white  shadow-md hover:shadow-xl rounded-lg overflow-hidden flex flex-col md:flex-row max-w-5xl mx-auto mb-6"
         >
           {/* Product Image */}
           <div className="md:w-1/3 w-full">

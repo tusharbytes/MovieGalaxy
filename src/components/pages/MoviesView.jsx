@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovies } from '../../redux/features/MovieSlice/MovieSlice';
 import { IoHeartSharp } from 'react-icons/io5';
@@ -35,12 +35,12 @@ function MoviesView() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
+    <div className="min-h-screen bg-[] py-8">
       <ToastContainer/>
       {fetch.loading && <Loader />}
 
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800 font-serif">🎬 Now Showing</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center text-white font-serif">🎬 Now Showing</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {fetch?.movieGet?.data?.map((movie) => (

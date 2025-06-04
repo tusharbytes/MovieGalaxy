@@ -35,7 +35,7 @@ function MovieSlider() {
   if (!fetchingMovie) return <Loader />;
 
   return (
-    <div className="container mx-auto py-6 bg-black">
+    <div className="container mx-auto py-6 ">
       <h2 className="text-2xl font-bold text-white mb-6">
         <span className="px-3 py-2 rounded-xl bg-blue-700">Trending Now</span>
       </h2>

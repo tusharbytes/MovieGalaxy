@@ -37,8 +37,8 @@ function ShoppingProducts() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <h1 className="text-4xl font-bold text-center text-gray-800 font-serif mb-10">
+    <div className="min-h-screen   py-10 px-4">
+      <h1 className="text-4xl font-bold text-center text-white font-serif mb-10">
         🛍️ Explore Shopping Products
       </h1>
 

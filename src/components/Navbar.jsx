@@ -26,12 +26,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-black text-white shadow-lg sticky top-0 z-50">
+    <nav className=" bg-[#1a565a] text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <Link
           to="/"
-          className="text-2xl sm:text-3xl font-serif font-bold text-white hover:text-red-500 transition"
+          className="text-2xl sm:text-3xl      text-white hover:text-red-500 transition"
         >
           🎥 MovieGalaxy
         </Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className="font-serif hover:text-red-400 transition duration-300"
+              className="  hover:text-red-400 transition duration-300"
             >
               {link.label}
             </Link>

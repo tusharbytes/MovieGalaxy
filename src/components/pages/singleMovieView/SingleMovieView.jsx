@@ -28,7 +28,7 @@ function SingleMovieView() {
     }
 
     return (
-        <div className=" py-3 flex items-center justify-center  bg-gray-100">
+        <div className=" py-3 flex items-center justify-center  ">
             {singleMovie?.poster_path && (
                 <div className="container mx-auto bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
                     {/* Left Section - Movie Image */}

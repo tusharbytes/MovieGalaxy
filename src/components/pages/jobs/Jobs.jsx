@@ -29,9 +29,9 @@ function Jobs() {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen py-10 px-4">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
-        🚀 Available <span className="text-blue-600">Job Listings</span>
+    <div className=" min-h-screen py-10 px-4">
+      <h1 className="text-4xl font-bold text-center text-white mb-10">
+        🚀 Available <span className="text-red-600">Job Listings</span>
       </h1>
 
       <div className="container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">

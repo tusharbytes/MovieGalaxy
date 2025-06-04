@@ -3,7 +3,7 @@ import React from 'react';
 
 const CommonContainer = ({ children, className = '' }) => {
   return (
-    <div className={`    ${className}`}>
+    <div className={`bg-[#1A565A]    ${className}`}>
       {children}
     </div>
   );

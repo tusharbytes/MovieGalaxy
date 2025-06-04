@@ -25,10 +25,12 @@ function GameView() {
   }, []);
 
   return (
-     <div className=" px-2 bg-gray-100 py-8">
+     <div className=" px-2 bg-[#1A565A] py-8">
+     
       {loading && <Loader />}
 
-     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+      <div className="container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
   {game.map((game) => (
     <div
       key={game.id}
@@ -43,7 +45,7 @@ function GameView() {
 
       <div className="p-4 flex flex-col justify-between h-full">
         <div>
-          <h3 className="text-lg font-semibold text-gray-800">{game.name}</h3>
+          <h3 className="text-lg font-semibold text-white">{game.name}</h3>
           <p className="text-gray-600 mt-1">{game.price}</p>
         </div>
  
