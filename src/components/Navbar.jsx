@@ -4,6 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { MdShoppingCartCheckout } from "react-icons/md";
+import InputField from "./common/InputField";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -35,6 +36,14 @@ const Navbar = () => {
         >
           🎥 MovieGalaxy
         </Link>
+        {/* <div className="flex gap-2 items-center"> 
+          <InputField
+          className="rounded-[1.375rem]"
+          placeholder={"Search"}
+          />
+         
+          </div> */}
+       
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8 text-base lg:text-lg">

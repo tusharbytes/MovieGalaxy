@@ -38,12 +38,13 @@ function ShoppingProducts() {
 
   return (
     <div className="min-h-screen   py-10 px-4">
+       
       <h1 className="text-4xl font-bold text-center text-white font-serif mb-10">
         🛍️ Explore Shopping Products
       </h1>
 
       <div className="container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {shop.items.map((item) => (
+        {shop?.items?.map((item) => (
           <div
             key={item.id}
             className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden p-5 flex flex-col"
