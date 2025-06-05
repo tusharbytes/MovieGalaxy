@@ -71,20 +71,20 @@ function Header() {
     width: '100%',
   }}
 >
-  {/* <div className=" bg-opacity-60   md:p-10 rounded-xl   text-center max-w-2xl w-full">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-widest mb-4 leading-snug">
+  <div className=" bg-opacity-60  py-4   rounded-xl   text-center md:max-w-2xl w-full">
+    <h1 className="text-3xl sm:text-3xl md:text-5xl font-semibold tracking-widest md:mb-4 leading-snug">
       Welcome to <span className="text-yellow-400">MovieGalaxy</span>
     </h1>
-    <p className="text-base sm:text-lg font-light px-2 sm:px-6">
+    <p className="text-base  font-light px-2 sm:px-6">
       Your destination for cinematic magic ✨
     </p>
-  </div> */}
+  </div>
    {/*login and Register Fields  */}
 <div
-  className="flex items-center justify-center min-h-screen bg-cover bg-center px-4 sm:px-6 md:px-8"
+  className="flex md:flex items-center justify-center md:min-h-screen bg-cover bg-center  sm:px-6 md:px-8"
   style={{ backgroundImage: "url('/your-background-image-path.jpg')" }}
 >
-  <div className="w-[400px] h-[450px] bg-black bg-opacity-70 rounded-xl p-6 text-white shadow-xl">
+  <div className="w-[300px]  md:w-[400px] md:h-[450px] bg-black bg-opacity-70 rounded-xl p-2 text-white shadow-xl">
     
     {/* Toggle Buttons */}
     <div className="flex justify-center space-x-4 mb-6">
@@ -93,7 +93,7 @@ function Header() {
         className={`py-2 px-5 rounded-md transition duration-300 hover:bg-white hover:text-black font-semibold
           ${logSign ? 'bg-white text-black font-semibold' : 'bg-gray-700 text-white'}`}
       >
-        SignUp /
+        SignUp
       </button>
       <button
         onClick={() => setLogSign(false)}
