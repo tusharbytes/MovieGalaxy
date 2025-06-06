@@ -4,7 +4,6 @@ import { shoppingApi } from '../../../redux/features/shoppingSlice/ShoppingSlice
 import { Link } from 'react-router-dom';
 import { singleMovieSelect } from '../../../redux/features/singleViewMovie/SingleMovieSlice';
 import Loader from '../../common/Loader';
-import { addToWish } from '../../../redux/features/addWishList/MovieWishListSlice';
 import { addToProductWish } from '../../../redux/features/productWishList/ProductWishList';
 import { ToastContainer } from 'react-toastify';
 
@@ -43,7 +42,7 @@ function ShoppingProducts() {
         🛍️ Explore Shopping Products
       </h1>
 
-      <div className="container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="container mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {shop?.items?.map((item) => (
           <div
             key={item.id}
@@ -61,10 +60,10 @@ function ShoppingProducts() {
               />
             </Link>
 
-            <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
+            <h2 className="text-xl font-semibold text-gray-800 mb-2 text-left">
               {item.product.name}
             </h2>
-            <p className="text-sm text-gray-500 mb-3 text-center">
+            <p className="text-sm text-gray-500 mb-3 line-clamp-2 text-left">
               {item.product.description}
             </p>
 

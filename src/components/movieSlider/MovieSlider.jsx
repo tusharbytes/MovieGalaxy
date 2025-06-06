@@ -37,8 +37,7 @@ function MovieSlider() {
   return (
     <div className="container mx-auto py-6 ">
       <h2 className="text-2xl font-bold text-white mb-6">
-        <span className="px-3 py-2 rounded-xl bg-blue-700">Trending Now</span>
-      </h2>
+          </h2>
       <Slider {...settings}>
         {fetchingMovie.data?.length > 0 ? (
           fetchingMovie.data.map((movie) => (

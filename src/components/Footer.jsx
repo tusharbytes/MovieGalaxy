@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="  text-gray-400 text-sm font-sans">
       <div className="container mx-auto px-6 py-12">
         {/* Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 mb-10">
           {/* Movies Now Showing */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 tracking-wide">
@@ -31,16 +31,7 @@ const Footer = () => {
           </div>
 
           {/* Help Section */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4 tracking-wide">
-              🤝 Help
-            </h3>
-            <ul className="space-y-2">
-              {["About Us", "Contact Us", "Press Releases", "Terms & Conditions", "Privacy Policy"].map((item, i) => (
-                <li key={i} className="hover:text-white transition duration-300">{item}</li>
-              ))}
-            </ul>
-          </div>
+      
 
           {/* MovieGalaxy Exclusives */}
           <div>
